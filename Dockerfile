@@ -1,16 +1,16 @@
 FROM ubuntu:latest
-LABEL authors="pblon"
-
-ENTRYPOINT ["top", "-b"]FROM python:3.11-slim
 
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
+    python3 \
+    python3-pip \
+    python3-dev \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --break-system-packages -r requirements.txt
 
 COPY app/ ./app/
 COPY data/ ./data/
