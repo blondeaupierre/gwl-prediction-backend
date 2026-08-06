@@ -1,0 +1,12 @@
+# Venv
+backend/.venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Parquet files
+data/
+
+# IDEs
+.idea/
+.vscode/
